@@ -16,6 +16,7 @@ namespace Lab2
 
         internal void CreateReport()
         {
+            Console.Clear();
             Console.WriteLine("Введите заголовок поста: ");
             string heading = Console.ReadLine();
             Console.WriteLine("Введите содержание поста: ");
@@ -23,38 +24,6 @@ namespace Lab2
             _reportList.Add(new Report(heading, content));
             Console.Clear();
             Console.WriteLine("Пост успешно добавлен !\n");
-        }
-        internal void DeleteReport()
-        {
-            Console.Clear();
-            foreach (Report report in _reportList)
-                report.ShowReport();
-            Console.WriteLine("Введите название поста, который хотите удалить");
-            string heading = Console.ReadLine();
-            for (int i = 0; i < _reportList.Count; i++)
-            {
-                if (heading == _reportList[i].GetHeading())
-                {
-                    Console.WriteLine("Пост найден: ");
-                    _reportList[i].ShowReportHeadingWithRating();
-                    Console.WriteLine("Вы действительно хотите его удалиить ?(Да/Нет)");
-                    string temp = Console.ReadLine();
-                    if(temp.ToLower()=="да")
-                    {
-                        _reportList.RemoveAt(i);
-                        Console.WriteLine("Пост удалён");
-                        //DeleteReport();
-                    }
-                    else if(temp.ToLower() == "нет")
-                    {
-                        Console.WriteLine("Ничего не произошло;)");
-                    }  
-                    else
-                    {
-                        Console.WriteLine("Такого выбора нет");
-                    }
-                }
-            }
         }
         internal void ShowReports()
         {
@@ -102,6 +71,7 @@ namespace Lab2
 
         internal void EditRating()
         {
+            Console.Clear();
             foreach (Report report in _reportList)
                 report.ShowReportHeadingWithRating();
             Console.WriteLine("Введите название поста, которому хотите изменить рейтинг");

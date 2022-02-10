@@ -27,9 +27,6 @@ namespace Lab2
                         blog.EditRating();
                         break;
                     case "5":
-                        blog.DeleteReport();
-                        break;
-                    case "6":
                         break;
                     default:
                         Console.Clear();
@@ -44,8 +41,7 @@ namespace Lab2
                 "2. Показать все посты\n" +
                 "3. Показать посты по рейтингу\n" +
                 "4. Изменить рейтинг посту\n" +
-                "5. Удалить пост\n" +
-                "6. Выключить программу\n");
+                "5. Выключить программу\n");
         }
     }
 }
