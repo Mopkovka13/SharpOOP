@@ -15,7 +15,7 @@ namespace Lab12
             _timers = new List<TimeSpan>();
         }
 
-        internal async void Start(TimeSpan StartTime)
+        internal async void Start()
         {
             if (_workStatus == true) // Если уже запущен - исключение
             {
@@ -28,13 +28,10 @@ namespace Lab12
                 TimeSpan time = new TimeSpan(0, 0, 0);
                 while(_workStatus == true)
                     await Task.Run(() => Print(ref time));
+                _timers.Add(time);
             }
         }
-
-        /// <summary>
-        /// Передаём Start, чтобы посчитать разницу во времени
-        /// </summary>
-        internal void Stop(TimeSpan StartTime)
+        internal void Stop()
         {
             if (_workStatus == false) //Если уже остановлен - исключение
             {
@@ -43,18 +40,15 @@ namespace Lab12
             else
             {
                 _workStatus = false;
-                TimeSpan CurrentTime = DateTime.Now.TimeOfDay;
-                _timers.Add(CurrentTime - StartTime);
             }
         }
-        internal void Print(ref TimeSpan time)
+        internal static void Print(ref TimeSpan time)
         {
-            Console.SetCursorPosition(0, 0);
+            Console.SetCursorPosition(0, 0); //перерисовываем консоль
+            time += TimeSpan.FromSeconds(1);
             Console.WriteLine("Время: " + time);
             PrintMenu();
             Thread.Sleep(1000);
-            time += TimeSpan.FromSeconds(1);
-
         }
         internal void ShowTimers()
         {

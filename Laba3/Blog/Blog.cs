@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lab2
+namespace Laba3
 {
     internal class Blog
     {
@@ -10,9 +10,9 @@ namespace Lab2
         {
             _reportList = new List<Report>()
             {
-                new Report("Морковь","двулетнее растение (редко одно- или многолетнее) из семейства Зонтичные"),
-                new Report("Лук","многолетнее травянистое растение, вид рода Лук (Allium) семейства Луковые"),
-                new Report("Капуста","двулетняя культура из семейства крестоцветных. Корневая система растения мощная, хорошо разветвленная.")
+                new Report("Морковь"," - двулетнее растение (редко одно- или многолетнее) из семейства Зонтичные"),
+                new Report("Лук"," - многолетнее травянистое растение, вид рода Лук (Allium) семейства Луковые"),
+                new Report("Капуста","- двулетняя культура из семейства крестоцветных. Корневая система растения мощная, хорошо разветвленная.")
             };
         }
 
@@ -29,7 +29,7 @@ namespace Lab2
         }
         internal void ShowReports()
         {
-            if(_reportList.Count == 0 || _reportList == null)
+            if (_reportList.Count == 0 || _reportList == null)
             {
                 Console.Clear();
                 Console.WriteLine("Постов пока нет");
@@ -52,22 +52,22 @@ namespace Lab2
                 Console.WriteLine("Постов пока нет");
             }
             else
-            {  
+            {
                 Report[] SortArray = new Report[_reportList.Count]; //Создаём новый массив и копируем в него наш, чтобы наш остался неизменным
                 _reportList.CopyTo(SortArray);
-                for(int i = 0; i < SortArray.Length; i++)
-                    for(int j = i + 1; j < SortArray.Length; j++)
+                for (int i = 0; i < SortArray.Length; i++)
+                    for (int j = i + 1; j < SortArray.Length; j++)
                     {
                         if (SortArray[i].GetRating() > SortArray[j].GetRating())
                         {
                             Report temp = SortArray[i];
                             SortArray[i] = SortArray[j];
                             SortArray[j] = temp;
-                        } 
+                        }
                     }
                 for (int i = 0; i < SortArray.Length; i++)
                     SortArray[i].ShowReport();
-                
+
             }
         }
 
@@ -78,9 +78,9 @@ namespace Lab2
                 report.ShowReportHeadingWithRating();
             Console.WriteLine("Введите название поста, которому хотите изменить рейтинг");
             string heading = Console.ReadLine();
-            for(int i = 0; i < _reportList.Count; i++)
+            for (int i = 0; i < _reportList.Count; i++)
             {
-                if(heading == _reportList[i].GetHeading())
+                if (heading == _reportList[i].GetHeading())
                 {
                     Console.WriteLine("Пост найден: ");
                     _reportList[i].ShowReportHeadingWithRating();

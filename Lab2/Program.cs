@@ -33,7 +33,7 @@ namespace Lab2
                         Console.WriteLine("Нет такого варианта");
                         break;
                 }
-            } while (choose != "6");
+            } while (choose != "5");
         }
         static void PrintMenu()
         {

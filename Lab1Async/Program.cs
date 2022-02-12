@@ -16,11 +16,10 @@ namespace Lab12
                 switch (choose)
                 {
                     case "1":
-                        StartTime = DateTime.Now.TimeOfDay;
-                        stopwatch.Start(StartTime);
+                        stopwatch.Start();
                         break;
                     case "2":
-                         stopwatch.Stop(StartTime);
+                         stopwatch.Stop();
                         break;
                     case "3":
                         stopwatch.ShowTimers();
