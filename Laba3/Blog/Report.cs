@@ -16,6 +16,13 @@ namespace Laba3
             _creationDate = DateTime.Now;
             _rating = 0;
         }
+        internal Report(string heading, string content, int rating) //Оглавление и содержание
+        {
+            _heading = heading;
+            _content = content;
+            _creationDate = DateTime.Now;
+            _rating = rating;
+        }
 
         internal void ShowReport()
         {

@@ -1,17 +1,17 @@
 ﻿using System;
 
-namespace Laba3
+namespace Laba4
 {
-    abstract class DB
+    class DB
     {
         internal string _typeConnect; //Тип соединения, получаем от СУБД
         private bool _connection = false; //Есть ли сейчас подключение к БД
         private DateTime _connectTime; //Когда было подключено
-        private const int _workTime = 10; // Время, которое будет работать подключение
+        private const int _workTime = 10; // Время, которое будет работать подключение (По заданию 10 секунд, но это мало)
 
         internal void Connect()
         {
-            if(_connection == false) //Если подключения нет - подключить
+            if (_connection == false) //Если подключения нет - подключить
             {
                 _connection = true;
                 Console.Clear();
@@ -28,7 +28,7 @@ namespace Laba3
 
         internal void Disconnect()
         {
-            if( _connection == true) //Если подключение есть - отключить
+            if (_connection == true) //Если подключение есть - отключить
             {
                 _connection = false;
                 Console.Clear();
@@ -44,12 +44,12 @@ namespace Laba3
         internal bool CheckConnect()
         {
             bool check = false;
-            if(_connection == false)
+            if (_connection == false)
             {
                 Console.Clear();
                 Console.WriteLine("Подключение к " + _typeConnect + " отсутствует\n");
             }
-            else if((DateTime.Now - _connectTime).TotalSeconds >= _workTime) //Если время работы истекло
+            else if ((DateTime.Now - _connectTime).TotalSeconds >= _workTime) //Если время работы истекло
             {
                 Console.Clear();
                 Console.WriteLine("Время подключения к " + _typeConnect + " истекло\n");
